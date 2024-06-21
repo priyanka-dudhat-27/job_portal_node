@@ -10,7 +10,6 @@ module.exports.loginRequire=async(req,res,next)=>{
         }
 
         const token=await authorization.replace("Bearer ","")
-        console.log(token)
         jwt.verify(token,process.env.JWT_SECRET,async(err,payload)=>{
             if(err){
                 console.log(err)

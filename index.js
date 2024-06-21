@@ -3,14 +3,22 @@ const app=express()
 const dotenv=require('dotenv').config()
 const port=process.env.PORT||5000
 const express_async_errors=require ('express-async-errors')
+// security packages
+const helmet=require('helmet')
+const mongoSanitize=require('express-mongo-sanitize')
+const rateLimit=require ('express-rate-limit')
+
 const morgan=require('morgan')
 const cors=require('cors')
 app.use(cors({
     credentials:true,
-    methods:['GET','POST'],
+    methods:['GET','POST','PUT','DELETE'],
 }))
 
 app.use(morgan('dev'))
+app.use(helmet());
+app.use(mongoSanitize());
+
 
 //mongodb connectivity
 const mongoose=require('mongoose')
