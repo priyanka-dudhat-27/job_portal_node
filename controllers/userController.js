@@ -32,7 +32,6 @@ module.exports.updateUser=async(req,res)=>{
             return res.status(400).json({message:'User not updated'})
         }
     } catch (error) {
-        console.log(error)
         return res.status(400).json({message:'Something Wrong',error})
     }
 

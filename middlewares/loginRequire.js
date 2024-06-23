@@ -12,7 +12,6 @@ module.exports.loginRequire=async(req,res,next)=>{
         const token=await authorization.replace("Bearer ","")
         jwt.verify(token,process.env.JWT_SECRET,async(err,payload)=>{
             if(err){
-                console.log(err)
                 return res.status(400).json({message:'Invalid or Expired token,Please Login first'})
             }else{
                 const { _id } = payload;
@@ -26,7 +25,6 @@ module.exports.loginRequire=async(req,res,next)=>{
             }
         })
     }catch(error){
-        console.log(error)
         return res.status(400).json({message:'Something Wrong',error})
     }
 }

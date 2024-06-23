@@ -15,7 +15,6 @@ module.exports.createJobs=async(req,res)=>{
         return res.status(400).json({message:'Job not created'})
     }
    } catch (error) {
-    console.log(error);
     return res.status(400).json({message:'Something wrong',error})
    }
 }
@@ -31,7 +30,7 @@ module.exports.getallJobs=async(req,res)=>{
             })
         }
     } catch (error) {
-        console.log(error);
+        
         return res.status(200).json({message:'something wrong',error})
     }
 }
@@ -61,7 +60,6 @@ module.exports.updateJobs= async(req,res)=>{
         return res.status(400).json({message:'Job not updated'})
       }
     }catch(error){
-        console.log(error)
         return res.status(400).json({message:"something wrong",error})
     }
 } 
@@ -86,7 +84,6 @@ module.exports.deleteJobs=async(req,res)=>{
             return res.status(400).json({message:'Job not deleted'})
         }
     } catch (error) {
-        console.log(error)
         return res.status(400).json({message:"something wrong",error})
     }
 }
